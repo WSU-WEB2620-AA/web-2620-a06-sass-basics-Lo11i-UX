@@ -1,0 +1,72 @@
+@mixin container {
+    width: $container-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+@mixin image {
+    display: inline-block;
+  
+    img {
+      display: block;
+      width: 100%;
+    }
+  
+    &.featured {
+      display: block;
+      width: 100%;
+      margin: 0 0 2em 0;
+    }
+  
+    &.full {
+      display: block;
+      width: 100%;
+      margin-bottom: 2em;
+    }
+  
+    &.left {
+      float: left;
+      margin: 0 2em 2em 0;
+    }
+  
+    &.centered {
+      display: block;
+      margin: 0 0 2em 0;
+  
+      img {
+        margin: 0 auto;
+        width: auto;
+      }
+    }
+  }
+  
+
+  
+@mixin button($background-color, $text-color) {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding: 0.50em 1.5em;
+    background: $background-color;
+    border-radius: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: $text-color;
+    transition: 
+      color 0.35s ease-in-out,
+      background-color 0.35s ease-in-out;
+    cursor: pointer;
+  
+    &:hover {
+      background: darken($background-color, 10%);
+      color: $text-color !important;
+    }
+  }
+
+  @mixin make-column($width) {
+    @for $i from 1 through 12 {
+      .column-#{$i} {
+        width: percentage($width * $i);
+      }
+    }
+  }
